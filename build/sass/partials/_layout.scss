@@ -1,7 +1,19 @@
 body{
-	font-family:$font-neon;
-	background-color:#F0F0FA;
+	background-color:#FFEBCD;
+	background-image:url('../images/casino-bg.jpg');
 }
+
+*{
+	box-sizing:border-box;
+}
+
 h1{
    font-size:122px;
+   padding:10px 0;
+   margin:0;
+   color:#FFEBCD;
+   text-align:center;
+   font-family:$font-neon;
+   font-weight: normal;
+   padding-bottom: 30px;
 }

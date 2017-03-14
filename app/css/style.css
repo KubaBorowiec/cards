@@ -475,10 +475,125 @@ template {
 }
 
 body {
-  font-family: "Mexcellent-Regular";
-  background-color: #F0F0FA;
+  background-color: #FFEBCD;
+  background-image: url("../images/casino-bg.jpg");
+}
+
+* {
+  box-sizing: border-box;
 }
 
 h1 {
   font-size: 122px;
+  padding: 10px 0;
+  margin: 0;
+  color: #FFEBCD;
+  text-align: center;
+  font-family: "Mexcellent-Regular";
+  font-weight: normal;
+  padding-bottom: 30px;
+}
+
+.buttons {
+  text-align: center;
+}
+.buttons button {
+  margin: 0 10px;
+  width: 150px;
+  padding: 10px;
+  border: none;
+  background-color: #A52A2A;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#panel {
+  margin-top: 30px;
+  text-align: center;
+  color: #fff;
+  font-size: 21px;
+}
+
+#cards {
+  width: 830px;
+  margin: 0 auto;
+  overflow: auto;
+}
+#cards .card {
+  width: 20%;
+  margin: 2.5%;
+  background-color: #F0F0FA;
+  float: left;
+  height: 200px;
+  border: 1px solid #000;
+  text-indent: -1000px;
+  border-radius: 10px;
+  position: relative;
+  -webkit-box-shadow: 10px 4px 25px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 4px 25px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 4px 25px -2px rgba(0, 0, 0, 0.75);
+}
+#cards .card:after {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  text-indent: 0;
+  display: block;
+}
+#cards .colpik {
+  border-color: red;
+  color: red;
+}
+#cards .coltrefl {
+  border-color: violet;
+  color: violet;
+}
+#cards .colczerwo {
+  border-color: pink;
+  color: pink;
+}
+#cards .coldzwonek {
+  border-color: gray;
+  color: gray;
+}
+#cards .fig2:after {
+  content: "2";
+}
+#cards .fig3:after {
+  content: "3";
+}
+#cards .fig4:after {
+  content: "4";
+}
+#cards .fig5:after {
+  content: "5";
+}
+#cards .fig6:after {
+  content: "6";
+}
+#cards .fig7:after {
+  content: "7";
+}
+#cards .fig8:after {
+  content: "8";
+}
+#cards .fig9:after {
+  content: "9";
+}
+#cards .fig10:after {
+  content: "10";
+}
+#cards .figQ:after {
+  content: "Q";
+}
+#cards .figJ:after {
+  content: "J";
+}
+#cards .figK:after {
+  content: "K";
+}
+#cards .figA:after {
+  content: "A";
 }

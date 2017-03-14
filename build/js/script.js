@@ -129,8 +129,7 @@
                 		},
                 		1000
                 	); 
-                }
-                //document.getElementById('panel').innerHTML = 'Cards on hand: <strong>' + this.handCards.length + '</strong>&nbsp;|&nbsp;Cards in waist: ' + waist.waist.length; 
+                } 
                 document.getElementById('panel').innerHTML = 'Cards on hand: <strong>' + this.handCards.length + '</strong>&nbsp;|&nbsp;Cards in waist: ' + waist.getNumberOfCards(); 
             };
              
@@ -138,8 +137,7 @@
             	document.getElementById(displaybox).innerHTML = '';
  				this.handCards.forEach( function(element) {
                  	var div = document.createElement("div");
-                 	//var text = document.createTextNode(figureArray[element.figure]);
-                 	var text = document.createTextNode( element.toString() );
+                 	var text = document.createTextNode(element.toString());
                     div.setAttribute("class",'fig' + figureArray[element.figure] + ' col' + colorArray[element.color] + ' card');
                     div.appendChild(text);
                     document.getElementById("cards").appendChild(div);
@@ -202,15 +200,9 @@
 
 /*************************************************************************************************/
 
-/*
- * Lepszym pomyslem jest uzycie addEventListener we wszystkich przypadkach przypisywania procedur obslugi eventow.
- * http://www.w3schools.com/jsref/met_document_addeventlistener.asp
- * Jest to zgodne ze standardem DOM, z ktorego Pan korzysta przy modyfikowaniu struktury html oraz jesli inny skrypt bedzie wczesniej dodawal procedury obslugi eventow do tego samego obiektu
- * to takie przypisanie calkowicie zamazuje taka modyfikacje innego skryptu.
- */
 
-				
-			            var testTalia = new Waist();		
+			            var testTalia = new Waist();
+			            testTalia.shuffling(); 		
 			            var reka = new Handcards();
 			            reka.addnewcard();
 			            reka.getfromwaist(testTalia, 3);
@@ -237,18 +229,5 @@
 						document.getElementById("showRed").onclick = function() {
 						    	reka.displaycolor(2);
 						};   
-
-
-			
-			/*
-			 * Jesli inny skrypt wykona taka linijke jak ponizej to cala procedura obslugi zdarznia windows.onload sie usuwa.
-			 */
-			/*
-			window.onload = function() {
-				
-			};
-			*/
-			
-//zakonczenie funkcji anonimowej i jednoczesne jej wywolanie uruchamiajace caly kod
 
 })();

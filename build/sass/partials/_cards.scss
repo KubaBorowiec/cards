@@ -1,0 +1,83 @@
+#cards{
+	width:830px;
+	margin:0 auto;
+	overflow:auto;
+	.card{
+		width:20%;
+		margin:2.5%;
+		background-color:#F0F0FA;
+		float:left;
+		height:200px;
+		border:1px solid #000;
+	    text-indent: -1000px;
+	    border-radius:10px;
+	    position:relative;
+	    -webkit-box-shadow: 10px 4px 25px -2px rgba(0,0,0,0.75);
+		-moz-box-shadow: 10px 4px 25px -2px rgba(0,0,0,0.75);
+		box-shadow: 10px 4px 25px -2px rgba(0,0,0,0.75);
+		&:after{
+			position:absolute;
+			top:10px;
+			left:10px;
+			font-size:20px;
+			text-indent:0;
+			display:block;
+		}
+	}
+	.colpik{
+		border-color:red;
+		color:red;
+	}
+	.coltrefl{
+		border-color:violet;
+		color:violet;
+	}
+	.colczerwo{
+		border-color:pink;
+		color:pink;
+	}
+	.coldzwonek{
+		border-color:gray;
+		color:gray;
+	}
+
+	.fig2:after{
+		content:"2"
+	}
+	.fig3:after{
+		content:"3"
+	}
+	.fig4:after{
+		content:"4"
+	}
+	.fig5:after{
+		content:"5"
+	}
+	.fig6:after{
+		content:"6"
+	}
+	.fig7:after{
+		content:"7"
+	}
+	.fig8:after{
+		content:"8"
+	}
+	.fig9:after{
+		content:"9"
+	}
+	.fig10:after{
+		content:"10"
+	}
+	.figQ:after{
+		content:"Q"
+	}
+	.figJ:after{
+		content:"J"
+	}
+	.figK:after{
+		content:"K"
+	}
+	.figA:after{
+		content:"A"
+	}
+}
