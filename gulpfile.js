@@ -28,6 +28,7 @@ function errorlog(err){
 
 gulp.task('scripts', function() {
   return gulp.src('./build/js/**/*.js')
+    .pipe(plumber())
     .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(rename('app.min.js'))   
@@ -68,7 +69,7 @@ gulp.task('css', function(){
     .pipe(reload({stream:true}));
 });
 gulp.task('js', function(){
-    gulp.src('app/js/*.js')
+    gulp.src('build/js/*.js')
     .pipe(reload({stream:true}));
 });
 
@@ -92,10 +93,11 @@ gulp.task('browser-sync', function() {
 gulp.task ('watch', function(){ 
   gulp.watch('build/sass/**/*.scss', ['compass']);
   gulp.watch('build/templates/**/*.jade', ['jade']);
-  gulp.watch('build/js/**/*.js', ['scripts']);
+  // gulp.watch('build/js/**/*.js', ['scripts']); //for building
   gulp.watch('index.html', ['html']);
   gulp.watch('app/css/*.css', ['css']);
   gulp.watch('app/js/*.js', ['js']);
+  gulp.watch('build/js/*.js', ['js']);
 });
 //////////////////////////////////////////////////
 // JADE
@@ -108,5 +110,5 @@ gulp.task('jade', function() {
     
 });
 
-gulp.task('default', ['html','watch','js','css','compass','scripts','jade','browser-sync']);
+gulp.task('default', ['html','watch','js','css','compass',/*'scripts'*/'jade','browser-sync']);
 
