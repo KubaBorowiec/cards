@@ -27,8 +27,8 @@ function errorlog(err){
 // ///////////////////////////////////////////////
 
 gulp.task('scripts', function() {
-  return gulp.src('build/js/**/*.js')
-    .pipe(concat('temp.js'))
+  return gulp.src('./build/js/**/*.js')
+    .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(rename('app.min.js'))   
     .pipe(gulp.dest('./app/js/'))
@@ -46,7 +46,7 @@ gulp.task('compass', function() {
     .pipe(compass({
       config_file: './config.rb',
       css: 'app/css',
-      sass: 'bulid/sass'
+      sass: 'build/sass'
     }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifycss())
@@ -64,7 +64,11 @@ gulp.task('html', function(){
     .pipe(reload({stream:true}));
 });
 gulp.task('css', function(){
-    gulp.src('css/*.css')
+    gulp.src('app/css/*.css')
+    .pipe(reload({stream:true}));
+});
+gulp.task('js', function(){
+    gulp.src('app/js/*.js')
     .pipe(reload({stream:true}));
 });
 
@@ -86,21 +90,23 @@ gulp.task('browser-sync', function() {
 // // /////////////////////////////////////////////
 
 gulp.task ('watch', function(){ 
-  gulp.watch('sass/**/*.scss', ['compass']);
-        gulp.watch('css/**/*.css', ['css']);
-        gulp.watch('templates/**/*.jade', ['jade']);
-    gulp.watch('*.html', ['html']);
+  gulp.watch('build/sass/**/*.scss', ['compass']);
+  gulp.watch('build/templates/**/*.jade', ['jade']);
+  gulp.watch('build/js/**/*.js', ['scripts']);
+  gulp.watch('index.html', ['html']);
+  gulp.watch('app/css/*.css', ['css']);
+  gulp.watch('app/js/*.js', ['js']);
 });
 //////////////////////////////////////////////////
 // JADE
 /////////////////////////////////////////////////
 gulp.task('jade', function() {
-  gulp.src('templates/*.jade')
+  gulp.src('build/templates/*.jade')
     .pipe(plumber())
     .pipe(jade())
     .pipe(gulp.dest('./'))
     
 });
 
-gulp.task('default', [ 'html', 'watch','css', 'compass','scripts','browser-sync']);
+gulp.task('default', ['html','watch','js','css','compass','scripts','browser-sync']);
 
