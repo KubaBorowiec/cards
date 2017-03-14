@@ -108,5 +108,5 @@ gulp.task('jade', function() {
     
 });
 
-gulp.task('default', ['html','watch','js','css','compass','scripts','browser-sync']);
+gulp.task('default', ['html','watch','js','css','compass','scripts','jade','browser-sync']);
 
