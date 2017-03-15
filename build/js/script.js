@@ -5,7 +5,7 @@
 /* Poniewaz w Javascripcie unika sie tworzenia zmiennych globalnych (tutaj te dwie ponizej) caly skrypt ujmujemy w wywolanie anonimowej funkcji umieszczajac te zmienne w jej closure.
  * (Ten pattern jest opisany w ksiazce Javascript Reference str. 21)
  */
-
+"use strict";
             var figureArray=[2,3,4,5,6,7,8,9,10,'J','Q','K','A'];
             var colorArray=['pik','trefl','dzwonek','czerwo'];
         			
@@ -16,19 +16,19 @@
                this.figure = figure;
 			}
 
-            Card.prototype.toString = function() {
+      Card.prototype.toString = function() {
                 //return 'color' + this.color + 'figure' + this.figure;
                 return figureArray[this.figure] + ' ' + colorArray[this.color];
-            };
+      };
 
-            function Waist() {
+      function Waist() {
              	this._waist = [];
                 for(var i = 0; i < figureArray.length; i++) {
                     for(var j = 0; j < colorArray.length; j++) {
                     	this._waist.push( new Card( j, i ) );
                     }
                 }
-             };
+       };
 
              Waist.prototype.shift = function(){
              	return this._waist.shift();
@@ -47,13 +47,10 @@
             	document.getElementById("cards").innerHTML = '';
  				this._waist.forEach( function(element) {
                  	var div = document.createElement("div");
-					var t = document.createTextNode("Hello World");
-					//var text = document.createTextNode(figureArray[element.figure]);
                  	var text = document.createTextNode( element.toString() );
                     div.setAttribute("class",'fig' + figureArray[element.figure] +' col' + colorArray[element.color] + ' card');
                     div.appendChild(text);
                     document.getElementById("cards").appendChild(div);
-                    console.log(element.toString());
  				});
             };
 
@@ -98,7 +95,6 @@
             Handcards.prototype.addnewcard = function() {
             	var color = Math.floor( ( Math.random() * colorArray.length ) );
             	var figure= Math.floor( ( Math.random() * figureArray.length ) );
-            	console.log( color + ' ' + figure );
             	this.handCards.push( new Card( color, figure ) );
             };
 
@@ -141,7 +137,6 @@
                     div.setAttribute("class",'fig' + figureArray[element.figure] + ' col' + colorArray[element.color] + ' card');
                     div.appendChild(text);
                     document.getElementById("cards").appendChild(div);
-                    console.log(element.toString());
  				});
             };
 
@@ -207,15 +202,12 @@
 			            reka.addnewcard();
 			            reka.getfromwaist(testTalia, 3);
 			            reka.display('cards');
-			            console.log(reka.getColors());
 			            
 						document.getElementById("shuffling").onclick = function() {
 						    	testTalia.shuffling();    	
 						};
 						document.getElementById("getCards").onclick = function() {
 						    	reka.getfromwaist(testTalia,3);
-						    	//reka.toString();
-						    	console.log( reka.toString() );
 						    	reka.display('cards');
 						};
 						document.getElementById("sortFig").onclick = function() {  
